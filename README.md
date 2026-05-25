@@ -176,8 +176,8 @@ A more robust version would combine this with process creation events (4688) and
 
 | | |
 |--|--|
-| Raw 4104 event | `screenshots/01-raw-4104-event.png` |
-| Detection query firing | `screenshots/02-detection-firing.png` |
+| Raw 4104 event | `screenshots/raw-4104-event.png` |
+| Detection query firing | `screenshots/detection-firing.png` |
 
 ---
 
@@ -186,5 +186,3 @@ A more robust version would combine this with process creation events (4688) and
 The detection query itself took maybe 20 minutes. The rest of the time was spent figuring out why logs weren't showing up — wrong port, logging disabled, wrong field name. That troubleshooting is probably more useful to document than the SPL, because the same kinds of silent failures happen in real environments all the time.
 
 ---
-
-*Part of the [75-Day SOC Detection Challenge](https://github.com/HariCipher)*
