@@ -1,0 +1,24 @@
+title: Suspicious PowerShell Script Block Logging Activity
+id: b7f31d40-4104-demo
+status: experimental
+description: Detects suspicious PowerShell Script Block Logging keywords
+author: Harilal
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    EventID: 4104
+    Message|contains:
+      - 'Invoke-Expression'
+      - 'IEX'
+      - '-enc'
+      - 'DownloadString'
+      - 'bypass'
+      - 'FromBase64String'
+      - 'ScriptBlockLogging'
+  condition: selection
+level: medium
+tags:
+  - attack.execution
+  - attack.t1059.001
