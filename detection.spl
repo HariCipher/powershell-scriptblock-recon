@@ -1,0 +1,12 @@
+index=* EventCode=4104
+| eval script=coalesce(ScriptBlockText, Message)
+| search script="*ScriptBlockLogging*"
+    OR script="*Invoke-Expression*"
+    OR script="*IEX*"
+    OR script="*-enc*"
+    OR script="*DownloadString*"
+    OR script="*bypass*"
+    OR script="*FromBase64String*"
+| eval user=coalesce(User, SubjectUserName, "unknown")
+| table _time, ComputerName, user, script
+| sort - _time
